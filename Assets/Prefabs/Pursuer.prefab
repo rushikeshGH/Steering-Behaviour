@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4164293113112269458}
   - component: {fileID: 630959648996376033}
-  - component: {fileID: 4485642371741316479}
+  - component: {fileID: -6529108361327127113}
   m_Layer: 3
-  m_Name: Flocker
+  m_Name: Pursuer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1770160397691525701, guid: 7f9918e2ac1dabc4d82a659c93542401, type: 3}
---- !u!114 &4485642371741316479
+--- !u!114 &-6529108361327127113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3639289108063963176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104bdda3700eb9d4ca85e92058ec09a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d01e10b210b07847bc5fdaac78ad09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   aversionDistance: 5
@@ -123,7 +123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6620e149607bb614ab9596485e25fb09, type: 2}
+  - {fileID: 2100000, guid: ac4c0ff79571a2841a42cb245bbdf250, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

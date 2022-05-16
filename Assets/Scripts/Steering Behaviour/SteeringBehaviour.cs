@@ -101,8 +101,8 @@ public static class SteeringBehaviour
     {
         float distance = (target.Position - steerable.Position).magnitude;
         float delta = 150 * Mathf.Min(1, distance / 5);
-        Vector3 pursuitPosition = target.Position + target.Velocity * delta;
-        return steerable.Flee(pursuitPosition);
+        Vector3 evasionPosition = target.Position + target.Velocity * delta;
+        return steerable.Flee(evasionPosition);
     }
 
     public static Vector3 Seek(this ISteerable steerable, Vector3 position, float arrivalDistance)

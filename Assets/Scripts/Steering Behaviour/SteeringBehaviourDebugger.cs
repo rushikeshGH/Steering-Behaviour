@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -61,7 +62,7 @@ public static class SteeringBehaviourDebugger
         if (neighbourCount > 0)
             averagePosition /= neighbourCount;
 
-        Vector3 cohesion = averagePosition - steerable.Position; 
+        Vector3 cohesion = averagePosition - steerable.Position;
         Handles.color = Color.magenta;
         Handles.DrawLine(steerable.Position, steerable.Position + cohesion.normalized);
     }
@@ -86,6 +87,24 @@ public static class SteeringBehaviourDebugger
 
         Handles.color = Color.red;
         Handles.DrawLine(steerable.Position, steerable.Position - averageDistance.normalized);
+    }
+
+    public static void DrawPursue(ISteerable steerable, ISteerable target)
+    {
+        float distance = (target.Position - steerable.Position).magnitude;
+        float delta = 150 * Mathf.Min(1, distance / 5);
+        Vector3 pursuitPosition = target.Position + target.Velocity * delta;
+        Handles.color = Color.green;
+        Handles.DrawWireDisc(pursuitPosition, Vector3.up, 0.25f);
+    }
+
+    public static void DrawEvade(ISteerable steerable, ISteerable target)
+    {
+        float distance = (target.Position - steerable.Position).magnitude;
+        float delta = 150 * Mathf.Min(1, distance / 5);
+        Vector3 evasionPosition = target.Position + target.Velocity * delta;
+        Handles.color = Color.red;
+        Handles.DrawWireDisc(evasionPosition, Vector3.up, 0.25f);
     }
 
     public static void DrawAvert(ISteerable steerable, float aversionDistance, float aversionRadius, LayerMask layerMask)
@@ -116,3 +135,5 @@ public static class SteeringBehaviourDebugger
         }
     }
 }
+
+#endif

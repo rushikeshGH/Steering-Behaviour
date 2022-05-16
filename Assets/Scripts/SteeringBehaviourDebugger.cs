@@ -1,15 +1,24 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 public static class SteeringBehaviourDebugger
 {
+    public static void DrawSteer(ISteerable steerable)
+    {
+        Handles.color = Color.blue;
+        Handles.DrawLine(steerable.Position, steerable.Position + (steerable.Velocity.normalized * 2));
+        Handles.color = Color.green;
+        Handles.DrawLine(steerable.Position, steerable.Position + (steerable.SteeringForce.normalized * 2));
+    }
+
     public static void DrawFlock(ISteerable steerable, float neighbourhoodRadius, LayerMask layerMask)
     {
         Handles.color = Color.yellow;
         Handles.DrawWireDisc(steerable.Position, Vector3.up, neighbourhoodRadius);
         DrawAlignWithNeghbours(steerable, neighbourhoodRadius, layerMask);
         DrawCohereWithNeighbours(steerable, neighbourhoodRadius, layerMask);
-        SeperateFromNeighbours(steerable, neighbourhoodRadius, layerMask);
+        DrawSeperateFromNeighbours(steerable, neighbourhoodRadius, layerMask);
     }
 
     public static void DrawAlignWithNeghbours(ISteerable steerable, float neighbourhoodRadius, LayerMask layerMask)
@@ -57,7 +66,7 @@ public static class SteeringBehaviourDebugger
         Handles.DrawLine(steerable.Position, steerable.Position + cohesion.normalized);
     }
 
-    public static void SeperateFromNeighbours(ISteerable steerable, float neighbourhoodRadius, LayerMask layerMask)
+    public static void DrawSeperateFromNeighbours(ISteerable steerable, float neighbourhoodRadius, LayerMask layerMask)
     {
         Vector3 averageDistance = Vector3.zero;
         int neighbourCount = 0;
@@ -85,11 +94,10 @@ public static class SteeringBehaviourDebugger
 
         RaycastHit[] raycastHits = Physics.RaycastAll(ray, aversionDistance, layerMask);
 
-        Handles.color = Color.green;
+        Handles.color = Color.red;
         Handles.DrawLine(steerable.Position, steerable.Position + (ray.direction * aversionDistance));
         Handles.DrawWireDisc(steerable.Position, Vector3.up, aversionRadius);
 
-        Handles.color = Color.red;
         if (raycastHits.Length > 0)
         {
             RaycastHit raycastHit = raycastHits[0];

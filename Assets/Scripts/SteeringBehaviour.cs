@@ -89,6 +89,22 @@ public static class SteeringBehaviour
         return -averageDistance.normalized * int.MaxValue;
     }
 
+    public static Vector3 Pursue(this ISteerable steerable, ISteerable target, float arrivalDistance)
+    {
+        float distance = (target.Position - steerable.Position).magnitude;
+        float delta = 150 * Mathf.Min(1, distance / 5);
+        Vector3 pursuitPosition = target.Position + target.Velocity * delta;
+        return steerable.Seek(pursuitPosition, arrivalDistance);
+    }
+
+    public static Vector3 Evade(this ISteerable steerable, ISteerable target)
+    {
+        float distance = (target.Position - steerable.Position).magnitude;
+        float delta = 150 * Mathf.Min(1, distance / 5);
+        Vector3 pursuitPosition = target.Position + target.Velocity * delta;
+        return steerable.Flee(pursuitPosition);
+    }
+
     public static Vector3 Seek(this ISteerable steerable, Vector3 position, float arrivalDistance)
     {
         Vector3 desiredVeclocity = position - steerable.Position;
@@ -97,6 +113,12 @@ public static class SteeringBehaviour
             float scale = Mathf.Min(1, (position - steerable.Position).sqrMagnitude / (arrivalDistance * arrivalDistance));
             steerable.Velocity = Vector3.ClampMagnitude(steerable.Velocity, scale * steerable.MaximumVelocity * Time.deltaTime);
         }
+        return desiredVeclocity - steerable.Velocity;
+    }
+
+    public static Vector3 Flee(this ISteerable steerable, Vector3 position)
+    {
+        Vector3 desiredVeclocity = steerable.Position - position;
         return desiredVeclocity - steerable.Velocity;
     }
 
@@ -136,5 +158,14 @@ public static class SteeringBehaviour
         }
 
         return aversion.normalized * int.MaxValue;
+    }
+
+    public static Vector3 Wander(this ISteerable steerable, float wanderCircleDistance, float wanderCircleRadius)
+    {
+        Vector3 normalizedVelocity = steerable.Velocity.normalized;
+        Vector3 center = steerable.Position + normalizedVelocity * wanderCircleDistance;
+        Vector3 wanderDisplacement = normalizedVelocity * wanderCircleRadius;
+        wanderDisplacement = Quaternion.AngleAxis(Random.Range(-120, 120), Vector3.up) * wanderDisplacement;
+        return center + wanderDisplacement;
     }
 }

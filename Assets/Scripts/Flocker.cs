@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-class Agent47 : MonoBehaviour, ISteerable
+class Flocker : MonoBehaviour, ISteerable
 {
     private const int LayerMask = ~(1 << 2);
-    private const int NeighbourhoodRadius = 3;
 
     [SerializeField] private int aversionDistance = 5;
     [SerializeField] private int aversionRadius = 2;
+    [SerializeField] private int neighbourhoodRadius = 3;
 
     [field: SerializeField] public float MaximumVelocity { get; set; }
     [field: SerializeField] public float MaximumSteeringForce { get; set; }
@@ -34,7 +34,7 @@ class Agent47 : MonoBehaviour, ISteerable
     private void Update()
     {
         this.Steer(
-            this.Flock(NeighbourhoodRadius, aversionRadius, ~LayerMask),
+            this.Flock(neighbourhoodRadius, aversionRadius, ~LayerMask),
             this.Seek(MouseWorldPosition, 0),
             this.Avert(aversionDistance, aversionRadius, LayerMask));
     }
@@ -46,9 +46,10 @@ class Agent47 : MonoBehaviour, ISteerable
             transform.forward = forward;
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    SteeringBehaviourDebugger.DrawAvert(this, aversionDistance, aversionRadius, LayerMask);
-    //    SteeringBehaviourDebugger.DrawFlock(this, NeighbourhoodRadius, ~LayerMask);
-    //}
+    private void OnDrawGizmosSelected()
+    {
+        SteeringBehaviourDebugger.DrawSteer(this);
+        SteeringBehaviourDebugger.DrawFlock(this, neighbourhoodRadius, ~LayerMask);
+        SteeringBehaviourDebugger.DrawAvert(this, aversionDistance, aversionRadius, LayerMask);
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4485642371741316479}
   - component: {fileID: 630959648996376033}
   m_Layer: 2
-  m_Name: Agent47
+  m_Name: Flocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

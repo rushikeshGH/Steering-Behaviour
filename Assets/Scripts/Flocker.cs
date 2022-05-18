@@ -8,8 +8,8 @@ class Flocker : MonoBehaviour, ISteerable
     [SerializeField] private int aversionRadius = 2;
     [SerializeField] private int neighbourhoodRadius = 3;
 
-    [field: SerializeField] public float MaximumVelocity { get; set; }
-    [field: SerializeField] public float MaximumSteeringForce { get; set; }
+    [field: SerializeField] public float MaximumVelocity { get; set; } = 16;
+    [field: SerializeField] public float MaximumSteeringForce { get; set; } = 0.2f;
 
     public Vector3 Velocity { get; set; }
     public Vector3 SteeringForce { get; set; }

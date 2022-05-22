@@ -2,6 +2,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class SteeringBehaviourDebugger
 {
@@ -133,6 +134,23 @@ public static class SteeringBehaviourDebugger
                 Handles.DrawWireCube(bounds.center, bounds.size);
             }
         }
+    }
+
+    public static void DrawWander(ISteerable steerable, float wanderAngle)
+    {
+        Vector3 arcStart = Quaternion.AngleAxis(-(wanderAngle / 2), Vector3.up) * steerable.Velocity.normalized;
+        Vector3 arcEnd = Quaternion.AngleAxis(wanderAngle / 2, Vector3.up) * steerable.Velocity.normalized;
+        Handles.color = Color.red;
+        Handles.DrawWireArc(steerable.Position, Vector3.up, arcStart, wanderAngle, 1);
+        Handles.DrawLine(steerable.Position, steerable.Position + arcStart);
+        Handles.DrawLine(steerable.Position, steerable.Position + arcEnd);
+    }
+
+    public static void DrawWanderWithinCircle(ISteerable steerable, float wanderAngle, Vector3 circleCenter, float circleRadius)
+    {
+        DrawWander(steerable, wanderAngle);
+        Handles.color = Color.red;
+        Handles.DrawWireDisc(circleCenter, Vector3.up, circleRadius);
     }
 }
 

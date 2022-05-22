@@ -160,12 +160,16 @@ public static class SteeringBehaviour
         return aversion.normalized * int.MaxValue;
     }
 
-    public static Vector3 Wander(this ISteerable steerable, float wanderCircleDistance, float wanderCircleRadius)
+    public static Vector3 Wander(this ISteerable steerable, float wanderAngle)
     {
-        Vector3 normalizedVelocity = steerable.Velocity.normalized;
-        Vector3 center = steerable.Position + normalizedVelocity * wanderCircleDistance;
-        Vector3 wanderDisplacement = normalizedVelocity * wanderCircleRadius;
-        wanderDisplacement = Quaternion.AngleAxis(Random.Range(-120, 120), Vector3.up) * wanderDisplacement;
-        return center + wanderDisplacement;
+        return Quaternion.AngleAxis(Random.Range(-(wanderAngle / 2), wanderAngle / 2), Vector3.up) * steerable.Velocity.normalized;
+    }
+
+    public static Vector3 WanderWithinCircle(this ISteerable steerable, float wanderAngle, Vector3 circleCenter, float circleRadius)
+    {
+        if ((circleCenter - steerable.Position).magnitude <= circleRadius)
+            return Wander(steerable, wanderAngle);
+        else
+            return Seek(steerable, circleCenter, 0);
     }
 }

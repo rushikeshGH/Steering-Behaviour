@@ -76,7 +76,7 @@ public static class SteeringBehaviour
 
         foreach (Collider collider in colliders)
         {
-            if (collider.TryGetComponent(out ISteerable neighbour))
+            if (collider.TryGetComponent(out ISteerable neighbour) && steerable != neighbour)
             {
                 averageDistance += neighbour.Position - steerable.Position;
                 neighbourCount++;
@@ -130,19 +130,24 @@ public static class SteeringBehaviour
 
         if (raycastHits.Length > 0)
         {
-            RaycastHit raycastHit = raycastHits[0];
-            Collider collider = raycastHit.collider;
-            Bounds bounds = collider.bounds;
-            float rayMagnitude = (ray.direction * aversionDistance).magnitude;
-            const int precision = 10;
-            float step = rayMagnitude / precision;
-            for (int i = 0; i < precision; i++)
+            foreach (var raycastHit in raycastHits)
             {
-                Vector3 point = ray.GetPoint(step * i);
-                if (bounds.Contains(point))
+                Collider collider = raycastHit.collider;
+                if (collider.TryGetComponent(out ISteerable other) && steerable == other)
+                    continue;
+
+                Bounds bounds = collider.bounds;
+                float rayMagnitude = (ray.direction * aversionDistance).magnitude;
+                const int precision = 10;
+                float step = rayMagnitude / precision;
+                for (int i = 0; i < precision; i++)
                 {
-                    aversion = ray.origin + (ray.direction * aversionDistance) - bounds.center;
-                    break;
+                    Vector3 point = ray.GetPoint(step * i);
+                    if (bounds.Contains(point))
+                    {
+                        aversion = ray.origin + (ray.direction * aversionDistance) - bounds.center;
+                        break;
+                    }
                 }
             }
         }
@@ -152,6 +157,9 @@ public static class SteeringBehaviour
 
             foreach (Collider collider in colliders)
             {
+                if (collider.TryGetComponent(out ISteerable other) && steerable == other)
+                    continue;
+
                 Bounds bounds = collider.bounds;
                 aversion += ray.origin + (ray.direction * aversionDistance) - bounds.center;
             }

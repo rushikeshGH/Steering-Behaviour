@@ -120,16 +120,23 @@ public static class SteeringBehaviourDebugger
 
         if (raycastHits.Length > 0)
         {
-            RaycastHit raycastHit = raycastHits[0];
-            Collider collider = raycastHit.collider;
-            Bounds bounds = collider.bounds;
-            Handles.DrawWireCube(bounds.center, bounds.size);
+            foreach (RaycastHit raycastHit in raycastHits)
+            {
+                Collider collider = raycastHit.collider;
+                if (collider.TryGetComponent(out ISteerable other) && steerable == other)
+                    continue;
+                Bounds bounds = collider.bounds;
+                Handles.DrawWireCube(bounds.center, bounds.size);
+            }
         }
         else
         {
             Collider[] colliders = Physics.OverlapSphere(steerable.Position, aversionRadius, layerMask);
             foreach (Collider collider in colliders)
             {
+                if (collider.TryGetComponent(out ISteerable other) && steerable == other)
+                    continue;
+
                 Bounds bounds = collider.bounds;
                 Handles.DrawWireCube(bounds.center, bounds.size);
             }

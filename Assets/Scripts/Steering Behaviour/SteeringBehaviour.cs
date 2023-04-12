@@ -8,10 +8,10 @@ public static class SteeringBehaviour
         foreach (Vector3 steeringForce in steeringForces)
             steerable.SteeringForce += steeringForce;
 
-        steerable.SteeringForce = Vector3.ClampMagnitude(steerable.SteeringForce, steerable.MaximumSteeringForce * Time.deltaTime);
-        steerable.Velocity = Vector3.ClampMagnitude(steerable.Velocity + steerable.SteeringForce, steerable.MaximumVelocity * Time.deltaTime);
+        steerable.SteeringForce = Vector3.ClampMagnitude(steerable.SteeringForce, steerable.MaximumSteeringForce);
+        steerable.Velocity = Vector3.ClampMagnitude(steerable.Velocity + steerable.SteeringForce * Time.deltaTime, steerable.MaximumVelocity);
         steerable.Velocity = new Vector3(steerable.Velocity.x, 0, steerable.Velocity.z);
-        steerable.Position += steerable.Velocity;
+        steerable.Position += steerable.Velocity * Time.deltaTime;
 
         steerable.Rotate();
     }

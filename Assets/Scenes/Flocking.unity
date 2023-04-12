@@ -548,6 +548,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
 --- !u!4 &100253228 stripped
@@ -773,6 +781,14 @@ PrefabInstance:
     - target: {fileID: 4164293113112269458, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
@@ -1083,6 +1099,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
 --- !u!4 &457075534 stripped
@@ -1144,6 +1168,14 @@ PrefabInstance:
     - target: {fileID: 4164293113112269458, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
@@ -1879,6 +1911,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
 --- !u!43 &775380444
@@ -2441,6 +2481,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
 --- !u!850595691 &1125135382
@@ -2821,6 +2869,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
 --- !u!4 &1693405789 stripped
@@ -2882,6 +2938,14 @@ PrefabInstance:
     - target: {fileID: 4164293113112269458, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
@@ -2993,5 +3057,13 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6620e149607bb614ab9596485e25fb09, type: 2}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485642371741316479, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc8be12f03f54a49b9282dcda33015c, type: 3}

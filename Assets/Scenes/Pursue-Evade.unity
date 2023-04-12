@@ -2401,6 +2401,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6529108361327127113, guid: 5f0a0fc0b92b37047b0e8442195e90bc, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: -6529108361327127113, guid: 5f0a0fc0b92b37047b0e8442195e90bc, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 3639289108063963176, guid: 5f0a0fc0b92b37047b0e8442195e90bc, type: 3}
       propertyPath: m_Name
       value: Pursuer
@@ -2458,6 +2466,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7495935488757207563, guid: 9b5f205c1951ad047ad97764022ecf43, type: 3}
+      propertyPath: <MaximumVelocity>k__BackingField
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: -7495935488757207563, guid: 9b5f205c1951ad047ad97764022ecf43, type: 3}
+      propertyPath: <MaximumSteeringForce>k__BackingField
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 3639289108063963176, guid: 9b5f205c1951ad047ad97764022ecf43, type: 3}
       propertyPath: m_Name
       value: Evader
